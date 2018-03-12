@@ -5,13 +5,13 @@ My test grpc with micro service project
 ### Installing
 * Install [Docker](https://docs.docker.com)
 * Change directory to the project root forder.
-*  Run this command in command line to run project
-```
-$ docker-compose up
-```
 * Create network for this project 
 ```
 $ docker network create -d bridge qNet
+```
+*  Run this command in command line to run project
+```
+$ docker-compose up
 ```
 * Create grpc container client using following commands:
 ```
