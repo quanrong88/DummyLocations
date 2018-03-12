@@ -1,0 +1,23 @@
+version: '2'
+services:
+  users-module:
+    build: ./users
+    image: users-module
+    container_name: users-module
+    network_mode: "qNet"
+    volumes:
+    - ./users:/code
+  comments-module:
+    build: ./comments
+    image: comments-module
+    container_name: comments-module
+    network_mode: "qNet"
+    volumes:
+    - ./comments:/code
+  locations-module:
+    build: ./locations
+    image: locations-module
+    container_name: locations-module
+    network_mode: "qNet"
+    volumes:
+    - ./locations:/code

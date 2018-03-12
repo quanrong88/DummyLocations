@@ -1,0 +1,15 @@
+syntax = "proto3";
+message CommentsRequest {
+    int32 contentId = 1;
+}
+message CommentsResponse {
+    message Comment {
+      string content = 1;
+      string name = 2;
+      string imageUrl = 3;
+    }
+    repeated Comment comments = 1;
+}
+service Comments {
+    rpc RequestComments (CommentsRequest) returns (CommentsResponse) {}
+}

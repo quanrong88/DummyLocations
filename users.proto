@@ -1,0 +1,11 @@
+syntax = "proto3";
+message UserRequest {
+    int32 userId = 1;
+}
+message UserResponse {
+    string name = 1;
+    string imageUrl = 2;
+}
+service Users {
+    rpc RequestUser (UserRequest) returns (UserResponse) {}
+}

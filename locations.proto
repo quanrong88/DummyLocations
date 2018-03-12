@@ -1,0 +1,33 @@
+syntax = "proto3";
+import "google/api/annotations.proto";
+message LocationsRequest {}
+message Location {
+    int32 id = 1;
+    string title = 2;
+    string subtitle = 3;
+    float lat = 4;
+    float long = 5;
+}
+message LocationsResponse {
+    repeated Location locations = 1;
+}
+message LocationDetailRequest {
+    int32 locationId = 1;
+}
+message LocationDetailResponse {
+    message Comment {
+      string content = 1;
+      string name = 2;
+      string imageUrl = 3;
+    }
+    Location location = 1;
+    repeated Comment comment = 2;
+}
+service Locations {
+    rpc RequestLocations (LocationsRequest) returns (LocationsResponse) {
+        option (google.api.http).get = "/locations";
+    }
+    rpc RequestLocationDetail (LocationDetailRequest) returns (LocationDetailResponse) {
+        option (google.api.http).get = "/locations/{locationId}";
+    }
+}
